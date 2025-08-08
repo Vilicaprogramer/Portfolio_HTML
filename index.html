@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Personal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="menu-toggle" id="menu-toggle">
+        ☰
+      </div>
+      <ul id="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#cv">Currículum</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#privacidad">Política</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <div class="perfil">
+        <img src="images/fondo_negro.JPEG" id="foto-perfil" alt="Foto de perfil" class="foto-perfil" />
+        <h1>Hola, soy Vicente Limones</h1>
+        <p>Apasionado por la Ciencia de datos y el Backend</p>
+      </div>
+    </section>
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="contenedor-proyectos">
+      <div class="proyecto">Proyecto 1</div>
+      <div class="proyecto">Proyecto 2</div>
+      <div class="proyecto">Proyecto 3</div>
+    </div>
+  </section>
+
+
+    <section id="cv">
+      <h2>Currículum</h2>
+      <p>Aquí va un resumen formativo y profesional</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form>
+        <input type="text" placeholder="Nombre" />
+        <input type="email" placeholder="Correo electrónico" />
+        <textarea placeholder="Mensaje"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section id="privacidad">
+      <h2>Política de Privacidad</h2>
+      <p>Este sitio utiliza cookies simuladas para cumplir con la práctica.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Portfolio Personal</p>
+  </footer>
+  <div class="cookies-popup" id="cookies-popup">
+  <p>Este sitio utiliza cookies para mejorar tu experiencia. <a href="#privacidad">Leer más</a>.</p>
+    <div class="botones-cookies">
+      <button id="cookies-aceptar">Aceptar</button>
+      <button id="cookies-rechazar">Rechazar</button>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
