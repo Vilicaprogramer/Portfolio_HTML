@@ -93,6 +93,7 @@ nav ul li a {
   overflow: hidden;
   transition: transform 0.2s ease;
   z-index: 0;
+  border-left: 4px solid #a259ff;
 }
 
 .proyecto::before {
@@ -197,4 +198,19 @@ footer {
     transform: translateY(0%);
     opacity: 1;
   }
+}
+
+.boton-volver {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #a259ff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.boton-volver:hover {
+  background-color: #843bd6;
 }
