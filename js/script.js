@@ -52,3 +52,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+const form = document.getElementById('contact-form');
+  const formMessage = document.getElementById('form-message');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch('https://formspree.io/f/mvgqdqba', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        formMessage.style.display = 'block';
+        formMessage.textContent = 'Mensaje enviado correctamente. ¡Gracias!';
+        form.reset();
+      } else {
+        response.json().then(data => {
+          if (data.errors) {
+            formMessage.style.display = 'block';
+            formMessage.style.color = 'red';
+            formMessage.textContent = data.errors.map(error => error.message).join(', ');
+          } else {
+            formMessage.style.display = 'block';
+            formMessage.style.color = 'red';
+            formMessage.textContent = 'Ha ocurrido un error al enviar el mensaje.';
+          }
+        });
+      }
+    }).catch(error => {
+      formMessage.style.display = 'block';
+      formMessage.style.color = 'red';
+      formMessage.textContent = 'Error de red. Por favor, inténtalo más tarde.';
+    });
+  });

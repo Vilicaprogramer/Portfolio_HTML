@@ -1,3 +1,103 @@
+/* ============== @font-face (VARIABLE FONTS .TTF) ============== */
+
+/* Montserrat variable (normal) */
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;   /* rango de pesos disponible en la VF */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat variable (italic) */
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Open Sans variable (normal) */
+@font-face {
+  font-family: "Open Sans";
+  src: url("fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype-variations");
+  font-weight: 300 800;   /* rango típico en la VF de Open Sans */
+  font-stretch: 75% 125%; /* eje wdth (condensado ←→ expandido) */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Open Sans variable (italic) */
+@font-face {
+  font-family: "Open Sans";
+  src: url("fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype-variations");
+  font-weight: 300 800;
+  font-stretch: 75% 125%;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============== Variables y aplicación global ============== */
+:root{
+  --font-heading: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html, body {
+  font-family: var(--font-body);
+  /* Mejoras de tipografía */
+  font-synthesis: weight style small-caps; /* evita falsos bold/italic cuando existen en la VF */
+  text-rendering: optimizeLegibility;
+}
+
+/* Títulos */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;          /* usa el eje wght de Montserrat */
+  letter-spacing: .2px;
+}
+
+/* Subtítulos o títulos medios */
+h3 { font-weight: 600; }
+
+/* Navegación y botones con fuerza visual */
+nav a, button {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Texto general */
+p, li, input, textarea, label {
+  font-family: var(--font-body);
+  font-weight: 400;          /* Open Sans wght */
+}
+
+/* Ejemplos opcionales de variable axes --------------------- */
+/* Un heading un pelín más condensado */
+.h-condensed { 
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-stretch: 95%;         /* Open Sans tiene wdth; Montserrat no. Úsalo donde apliques Open Sans o cambia la clase a body text */
+}
+
+/* Un párrafo más ligero */
+.p-light {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+/* Un párrafo en itálica real (no sintética) */
+.p-italic {
+  font-family: var(--font-body);
+  font-style: italic;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
   margin: 0;
   font-family: sans-serif;
@@ -12,6 +112,20 @@ body {
   cursor: pointer;
   text-align: right;
   padding: 1rem;
+}
+
+#inicio {
+  padding: 2rem;
+  background: #1e1e1e;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+#inicio h1 {
+  text-align: center;
+  color: #a259ff;
+  margin-bottom: 2rem;
 }
 
 nav ul {
@@ -82,18 +196,32 @@ nav ul li a {
   padding: 1rem;
 }
 
+#proyectos {
+  padding: 2rem;
+  background: #1e1e1e;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+#proyectos h2 {
+  text-align: center;
+  color: #a259ff;
+  margin-bottom: 2rem;
+}
+
 .proyecto {
   flex: 1 1 25%;
   max-width: 400px;
   border-radius: 10px;
-  background: #1e1e1e;
+  background: #000; /* Negro base */
   padding: 1.5rem;
   text-align: center;
   position: relative;
   overflow: hidden;
   transition: transform 0.2s ease;
   z-index: 0;
-  border-left: 4px solid #a259ff;
+  border-left: 4px solid #a259ff; /* lateral púrpura */
 }
 
 .proyecto::before {
@@ -103,7 +231,7 @@ nav ul li a {
   top: 0;
   height: 100%;
   width: 0%;
-  background: #a259ff;
+  background: #a259ff; /* púrpura al hover */
   z-index: 0;
   transition: width 0.5s ease;
 }
@@ -115,12 +243,12 @@ nav ul li a {
 .proyecto > * {
   position: relative;
   z-index: 1;
-  color: white;
+  color: white; /* Texto blanco por defecto */
   transition: color 0.3s ease;
 }
 
 .proyecto:hover > * {
-  color: black;
+  color: black; /* Texto negro sobre púrpura */
 }
 
 @media (max-width: 768px) {
@@ -130,6 +258,23 @@ nav ul li a {
   }
 }
 
+/* FIX imágenes dentro de la tarjeta */
+.proyecto img{
+  width:100%;
+  height:auto;
+  display:block;
+  max-width:100%;
+  border-top-left-radius:inherit;
+  border-top-right-radius:inherit;
+  object-fit:cover;
+}
+
+@supports (aspect-ratio: 16 / 9){
+  .proyecto img[loading="lazy"]{ aspect-ratio:16 / 9; }
+}
+
+.proyecto{ overflow:hidden; }
+/* FIN FIX */
 
 footer {
   background: #333;
@@ -213,4 +358,157 @@ footer {
 
 .boton-volver:hover {
   background-color: #843bd6;
+}
+
+/* ===== Contacto ===== */
+#contacto {
+  padding: 2rem;
+  background: #1e1e1e;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+#contacto h2 {
+  text-align: center;
+  color: #a259ff;
+  margin-bottom: 2rem;
+}
+
+
+#contacto form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; /* más separación entre columnas y filas */
+  padding: 0 1rem; /* margen interno a izquierda y derecha */
+}
+
+#contacto input,
+#contacto textarea {
+  width: 95%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background: #000;
+  color: white;
+  font-family: var(--font-body);
+}
+
+#contacto textarea {
+  grid-column: 1 / -1; /* Ocupa toda la fila */
+  min-height: 150px;
+  resize: vertical;
+}
+
+#contacto button {
+  grid-column: 1 / -1; /* Botón ocupa toda la fila */
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: #000; /* Negro base */
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid #a259ff; /* lateral púrpura */
+  z-index: 0;
+  transition: transform 0.2s ease;
+}
+
+#contacto button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: #a259ff;
+  z-index: 0;
+  transition: width 0.5s ease;
+}
+
+#contacto button:hover::before {
+  width: 100%;
+}
+
+#contacto button span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+#contacto button:hover span {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  #contacto form {
+    grid-template-columns: 1fr; /* Cambia a una sola columna en móvil */
+  }
+}
+
+
+#privacidad {
+  padding: 2rem;
+  background: #1e1e1e;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+#privacidad h2 {
+  text-align: center;
+  color: #a259ff;
+  margin-bottom: 2rem;
+}
+
+#cv {
+  padding: 2rem;
+  background: #1e1e1e;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+#cv h2 {
+  text-align: center;
+  color: #a259ff;
+  margin-bottom: 2rem;
+}
+
+.cv-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cv-header h3 {
+  margin: 0;
+}
+
+.cv-header a {
+  color: #a259ff;
+  text-decoration: none;
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+#cv h4 {
+  color: #a259ff;
+  margin-bottom: 0.5rem;
+}
+
+#cv ul {
+  list-style: none;
+  padding: 0;
+}
+
+#cv ul li {
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
 }

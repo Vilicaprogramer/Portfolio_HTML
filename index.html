@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Personal</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="preload" href="fonts/Montserrat/Montserrat-VariableFont_wght.ttf" as="font" type="font" crossorigin>
-  <link rel="preload" href="fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Montserrat/Montserrat-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
 
 </head>
 <body>
@@ -30,51 +30,134 @@
       <div class="perfil">
         <img src="images/fondo_negro.JPEG" id="foto-perfil" alt="Foto de perfil" class="foto-perfil" />
         <h1>Hola, soy Vicente Limones</h1>
-        <p>Apasionado por la Ciencia de datos y el Backend</p>
+        <p><strong>Data Analyst & Scientist |</strong> Apasionado por transformar datos en decisiones inteligentes</p>
+
+        <p style="text-align: justify;">Soy un profesional en transición hacia el mundo de los datos, con un Máster en Data Science e Inteligencia Artificial y una formación práctica intensiva en el bootcamp presencial de The Bridge | Digital Talent Accelerator. Combino mi experiencia previa en análisis de métricas y liderazgo con sólidas habilidades técnicas en Python, SQL, Machine Learning y visualización de datos.</p>
+
+        <p style="text-align: justify;">Mi objetivo es crear soluciones analíticas que aporten valor real y ayuden a las empresas a crecer de manera sostenible. Disfruto trabajando en equipos multidisciplinares, resolviendo problemas complejos y aprendiendo cada día algo nuevo.</p>
       </div>
     </section>
 
   <section id="proyectos">
     <h2>Proyectos</h2>
     <div class="contenedor-proyectos">
-      <div class="proyecto">Proyecto 1</div>
-      <div class="proyecto">Proyecto 2</div>
-      <div class="proyecto">Proyecto 3</div>
+
+      <div class="proyecto" aria-labelledby="proj-rps">
+        <img src="images/recomendador.png" alt="Captura de la app Recomendador de Películas en Streamlit" loading="lazy">
+        <h3 id="proj-rps">Recomendador de Películas (Streamlit)</h3>
+        <p>App en Streamlit que sugiere películas a partir de similitud y clustering. Incluye preprocesado y pipeline reproducible.</p>
+        <a class="boton-volver" href="https://github.com/Vilicaprogramer/recomendador-peliculas-streamlit" target="_blank" rel="noopener">Ver código</a>
+      </div>
+
+      <div class="proyecto" aria-labelledby="proj-energia">
+        <img src="images/energia.png" alt="Gráfico de series temporales para predicción de producción energética" loading="lazy">
+        <h3 id="proj-energia">Predicción de Producción Energética</h3>
+        <p>Modelado predictivo con notebooks de ML para estimar la producción energética. Exploración, features y evaluación.</p>
+        <a class="boton-volver" href="https://github.com/Vilicaprogramer/Predictor_Produccion_Energ-a" target="_blank" rel="noopener">Ver código</a>
+      </div>
+
+      <div class="proyecto" aria-labelledby="proj-shark">
+        <img src="images/sharks.png" alt="Mapa y gráficas del análisis de ataques de tiburón" loading="lazy">
+        <h3 id="proj-shark">EDA: Ataques de Tiburón</h3>
+        <p>Análisis exploratorio con limpieza y visualización para descubrir patrones por localización, fecha y circunstancias.</p>
+        <a class="boton-volver" href="https://github.com/Vilicaprogramer/EDA-SHARK-ATTACK" target="_blank" rel="noopener">Ver código</a>
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+  <section id="cv">
+    <h2>Currículum</h2>
+
+    <div class="cv-header">
+      <h3>Vicente Limones</h3>
+      <p>Data Analyst & Scientist</p>
+      <p>Madrid, España | <a href="mailto:vilicaprogramer@gmail.com">vilicaprogramer@gmail.com</a> | 
+        <a href="http://www.linkedin.com/in/vicente-limones-cantero-3a167328a" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+
+    <div class="cv-grid">
+      <div>
+        <h4>Formación</h4>
+        <ul>
+          <li><strong>Bootcamp Data Science</strong> – The Bridge (2025) | Python, SQL, ML, Deep Learning, Big Data</li>
+          <li><strong>Máster Data Science e Inteligencia Artificial</strong> – EBIS Business Techschool (2025)</li>
+          <li><strong>Desarrollador de Aplicaciones Web</strong> – The Power MBA (Actualidad) | HTML5, CSS3, JavaScript</li>
+          <li><strong>Técnico en Sistemas Microinformáticos y Redes</strong> – Colegio Valle del Miro (2013)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Experiencia</h4>
+        <ul>
+          <li><strong>Owner & Founder</strong> – Bennu Soul CrossFit (2018–Actualidad) | KPIs, liderazgo, estrategia</li>
+          <li><strong>Media Buyer</strong> – Mobusi Mobile Advertising (2013–2018) | Campañas digitales, análisis de métricas</li>
+          <li><strong>Operario de Producción</strong> – Peugeot Citroën (2008–2012) | Control de calidad</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Proyectos</h4>
+        <p><strong>Datathon ZF Group – Motortec 2025:</strong> Predicción de consumo energético de flotas, EDA y modelado.</p>
+      </div>
+
+      <div>
+        <h4>Habilidades</h4>
+        <p>Python | SQL | PowerBI | Machine Learning | HTML5 | CSS3 | GitHub | Big Data | Visualización de datos</p>
+      </div>
+      <div>
+        <h4>Idiomas</h4>
+        <p>Español (Nativo) | Inglés (B2)</p>
+      </div>
     </div>
   </section>
 
 
-    <section id="cv">
-      <h2>Currículum</h2>
-      <p>Aquí va un resumen formativo y profesional</p>
-    </section>
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Nombre" required />
+      <input type="email" name="_replyto" placeholder="Correo electrónico" required />
+      <textarea name="message" placeholder="Mensaje" required></textarea>
+      <button type="submit"><span>Enviar</span></button>
+    </form>
+    <div id="form-message" style="display:none; color: green; margin-top: 10px;"></div>
+  </section>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <form>
-        <input type="text" placeholder="Nombre" />
-        <input type="email" placeholder="Correo electrónico" />
-        <textarea placeholder="Mensaje"></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
 
     <section id="privacidad">
       <h2>Política de Privacidad</h2>
-      <p>Este sitio utiliza cookies simuladas para cumplir con la práctica.</p>
+      <p style="text-align: justify;">
+        En este sitio web respetamos tu privacidad y nos comprometemos a proteger tus datos personales.  
+        Recopilamos información únicamente con fines legítimos, como mejorar la experiencia de usuario y analizar el tráfico web.  
+        Utilizamos cookies para personalizar contenidos, facilitar la navegación y obtener estadísticas anónimas sobre el uso de la página.  
+        No compartimos tus datos con terceros sin tu consentimiento explícito.  
+        Puedes consultar nuestra <a href="politica.html" target="_blank" rel="noopener">Política de Privacidad completa</a> para más detalles sobre cómo gestionamos tu información y tus derechos.
+      </p>
     </section>
+
+  
+
+    <div class="cookies-popup" id="cookies-popup">
+      <p>
+        Utilizamos cookies propias y de terceros para mejorar tu experiencia, analizar el uso del sitio y ofrecer contenido personalizado. 
+        Puedes consultar nuestra <a href="politica.html" target="_blank" rel="noopener">Política de Cookies</a> para más información.
+      </p>
+      <div class="botones-cookies">
+        <button id="cookies-aceptar" aria-label="Aceptar cookies">Aceptar</button>
+        <button id="cookies-rechazar" aria-label="Rechazar cookies">Rechazar</button>
+      </div>
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2025 - Portfolio Personal</p>
   </footer>
-  <div class="cookies-popup" id="cookies-popup">
-  <p>Este sitio utiliza cookies para mejorar tu experiencia. <a href="politica.html">Leer más</a>.</p>
-    <div class="botones-cookies">
-      <button id="cookies-aceptar">Aceptar</button>
-      <button id="cookies-rechazar">Rechazar</button>
-    </div>
-  </div>
+
   <script src="js/script.js"></script>
 </body>
 </html>
