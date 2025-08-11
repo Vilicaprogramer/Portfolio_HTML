@@ -1,12 +1,14 @@
 /* ============== @font-face (VARIABLE FONTS .TTF) ============== */
+/* Aquí defino las fuentes que voy a usar en la web y desde dónde cargarlas.
+   Uso fuentes variables (VF), así puedo ajustar pesos sin cargar mil archivos. */
 
 /* Montserrat variable (normal) */
 @font-face {
   font-family: "Montserrat";
   src: url("fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype-variations");
-  font-weight: 100 900;   /* rango de pesos disponible en la VF */
+  font-weight: 100 900;   
   font-style: normal;
-  font-display: swap;
+  font-display: swap;      
 }
 
 /* Montserrat variable (italic) */
@@ -22,8 +24,8 @@
 @font-face {
   font-family: "Open Sans";
   src: url("fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype-variations");
-  font-weight: 300 800;   /* rango típico en la VF de Open Sans */
-  font-stretch: 75% 125%; /* eje wdth (condensado ←→ expandido) */
+  font-weight: 300 800;   
+  font-stretch: 75% 125%; 
   font-style: normal;
   font-display: swap;
 }
@@ -39,38 +41,39 @@
 }
 
 /* ============== Variables y aplicación global ============== */
+/* Variables para no repetir nombres de fuentes y poder cambiarlas fácil. */
 :root{
   --font-heading: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-body: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Ajustes base de tipografía para toda la página */
 html, body {
   font-family: var(--font-body);
-  /* Mejoras de tipografía */
-  font-synthesis: weight style small-caps; /* evita falsos bold/italic cuando existen en la VF */
-  text-rendering: optimizeLegibility;
+  font-synthesis: weight style small-caps; 
+  text-rendering: optimizeLegibility;      
 }
 
-/* Títulos */
+/* Títulos (uso Montserrat y un poco más de peso) */
 h1, h2, h3 {
   font-family: var(--font-heading);
-  font-weight: 700;          /* usa el eje wght de Montserrat */
-  letter-spacing: .2px;
+  font-weight: 700;          
+  letter-spacing: .2px;      
 }
 
-/* Subtítulos o títulos medios */
+/* Subtítulos o títulos medios un poco menos pesados */
 h3 { font-weight: 600; }
 
-/* Navegación y botones con fuerza visual */
+/* Navegación y botones con una fuente más “fuerte” visualmente */
 nav a, button {
   font-family: var(--font-heading);
   font-weight: 600;
 }
 
-/* Texto general */
+/* Texto general en Open Sans, cómodo de leer */
 p, li, input, textarea, label {
   font-family: var(--font-body);
-  font-weight: 400;          /* Open Sans wght */
+  font-weight: 400;          
 }
 
 /* Ejemplos opcionales de variable axes --------------------- */
@@ -78,7 +81,7 @@ p, li, input, textarea, label {
 .h-condensed { 
   font-family: var(--font-heading);
   font-weight: 700;
-  font-stretch: 95%;         /* Open Sans tiene wdth; Montserrat no. Úsalo donde apliques Open Sans o cambia la clase a body text */
+  font-stretch: 95%;         
 }
 
 /* Un párrafo más ligero */
@@ -93,33 +96,36 @@ p, li, input, textarea, label {
   font-style: italic;
 }
 
+/* Desplazamiento suave al hacer click en los anchors del menú */
 html {
   scroll-behavior: smooth;
 }
 
 
+/* ===== Reset y colores base del sitio ===== */
 body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #121212;
-  color: white;
+  margin: 0;                 
+  background: #121212;       /* fondo oscuro general */
+  color: white;              /* texto en blanco para contraste */
 }
 
+/* ===== Menú hamburguesa (solo se ve en móvil) ===== */
 .menu-toggle {
-  display: none;
+  display: none;             /* por defecto oculto en escritorio */
   font-size: 2rem;
-  color: #a259ff;
+  color: #a259ff;          
   cursor: pointer;
   text-align: right;
   padding: 1rem;
 }
 
+/* ===== Sección Inicio (hero/presentación) ===== */
 #inicio {
   padding: 2rem;
-  background: #1e1e1e;
+  background: #1e1e1e;       /* panel más claro que el fondo para destacar */
   border-radius: 10px;
   margin: 2rem auto;
-  max-width: 1200px;
+  max-width: 1200px;         /* límite de ancho para que no se vea gigante en pantallas grandes */
 }
 
 #inicio h1 {
@@ -128,14 +134,15 @@ body {
   margin-bottom: 2rem;
 }
 
+/* ===== Navegación principal ===== */
 nav ul {
   display: flex;
   gap: 1rem;
   list-style: none;
   background-color: #1e1e1e;
   padding: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: center;   /* centro los enlaces */
+  flex-wrap: wrap;           /* si no entran, bajan a otra línea */
   transition: all 0.5s ease-in-out;
 }
 
@@ -144,33 +151,35 @@ nav ul li a {
   text-decoration: none;
 }
 
+/* ===== Responsive del menú (móvil) ===== */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: block;          /* ahora sí muestro el botón hamburguesa */
   }
 
   nav ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  /* el menú pasa a estar en columna */
     align-items: center;
-    max-height: 0;
+    max-height: 0;           /* lo escondo “cerrándolo” */
     overflow: hidden;
-    opacity: 0;
+    opacity: 0;              /* y lo hago transparente */
     transition: max-height 0.5s ease, opacity 0.5s ease;
   }
 
   nav ul.active {
-    max-height: 500px; /* ajustable según contenido */
-    opacity: 1;
+    max-height: 500px;       /* al activar, se despliega */
+    opacity: 1;              /* y aparece */
   }
 }
 
+/* ===== Avatar/foto de perfil ===== */
 .foto-perfil {
   width: 150px;
   height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #a259ff;
+  object-fit: cover;          /* recorta para que no se deforme */
+  border-radius: 50%;         /* forma circular */
+  border: 3px solid #a259ff;  /* borde púrpura */
   transition: opacity 0.5s ease;
   opacity: 1;
 }
@@ -180,6 +189,7 @@ nav ul li a {
   margin-top: 2rem;
 }
 
+/* Por si no hay foto, un círculo gris de placeholder */
 .foto-placeholder {
   width: 150px;
   height: 150px;
@@ -188,9 +198,10 @@ nav ul li a {
   margin: 0 auto 1rem;
 }
 
+/* ===== Listado de proyectos (las tarjetas) ===== */
 .contenedor-proyectos {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;            /* que las tarjetas salten a otra fila si no caben */
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
@@ -210,47 +221,53 @@ nav ul li a {
   margin-bottom: 2rem;
 }
 
+/* Tarjeta de proyecto con efecto de “relleno púrpura” al hover */
 .proyecto {
-  flex: 1 1 25%;
-  max-width: 400px;
+  flex: 1 1 25%;              /* base flexible: ocupa ~25% si puede */
+  max-width: 400px;           /* no se hace más ancha que esto */
   border-radius: 10px;
-  background: #000; /* Negro base */
+  background: #000;           /* Negro base */
   padding: 1.5rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: hidden;           /* para que el pseudo-elemento no se salga */
   transition: transform 0.2s ease;
   z-index: 0;
-  border-left: 4px solid #a259ff; /* lateral púrpura */
+  border-left: 4px solid #a259ff; /* lateral púrpura para detalle */
 }
 
+/* Este pseudo-elemento es la “capa” púrpura que se expande en hover */
 .proyecto::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
-  width: 0%;
-  background: #a259ff; /* púrpura al hover */
+  width: 0%;                 /* empieza oculto (sin ancho) */
+  background: #a259ff;       /* púrpura al hover */
   z-index: 0;
-  transition: width 0.5s ease;
+  transition: width 0.5s ease; /* animación suave */
 }
 
+/* Al pasar el ratón, la capa se expande y “pinta” la tarjeta */
 .proyecto:hover::before {
   width: 100%;
 }
 
+/* Aseguro que el contenido quede por encima de la capa púrpura */
 .proyecto > * {
   position: relative;
   z-index: 1;
-  color: white; /* Texto blanco por defecto */
+  color: white;               /* Texto blanco por defecto */
   transition: color 0.3s ease;
 }
 
+/* Cuando la capa púrpura cubre el fondo, el texto pasa a negro para contraste */
 .proyecto:hover > * {
-  color: black; /* Texto negro sobre púrpura */
+  color: black;               /* Texto negro sobre púrpura */
 }
 
+/* En móvil, las tarjetas ocupan el 100% (una por fila) */
 @media (max-width: 768px) {
   .proyecto {
     flex: 1 1 100%;
@@ -259,6 +276,7 @@ nav ul li a {
 }
 
 /* FIX imágenes dentro de la tarjeta */
+/* Evito que las imágenes se salgan y hago que se adapten bien */
 .proyecto img{
   width:100%;
   height:auto;
@@ -266,16 +284,14 @@ nav ul li a {
   max-width:100%;
   border-top-left-radius:inherit;
   border-top-right-radius:inherit;
-  object-fit:cover;
+  object-fit:cover;           /* recorte bonito sin deformación */
 }
 
-@supports (aspect-ratio: 16 / 9){
-  .proyecto img[loading="lazy"]{ aspect-ratio:16 / 9; }
-}
 
-.proyecto{ overflow:hidden; }
-/* FIN FIX */
+.proyecto{ overflow:hidden; } /* por si acaso, escondo cualquier desbordamiento */
 
+
+/* ===== Pie de página ===== */
 footer {
   background: #333;
   color: white;
@@ -284,6 +300,7 @@ footer {
 }
 
 
+/* ===== Popup de cookies ===== */
 .cookies-popup {
   position: fixed;
   bottom: 0;
@@ -293,15 +310,16 @@ footer {
   color: white;
   padding: 1rem;
   text-align: center;
-  z-index: 9999;
-  display: none;
+  z-index: 9999;             /* por encima de todo */
+  display: none;             /* empieza oculto */
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-  animation: slideUp 0.5s ease-out;
+  animation: slideUp 0.5s ease-out; /* animación al aparecer */
 }
 
+/* Clase que muestra el popup (se añade con JS) */
 .cookies-popup.show {
   display: flex;
 }
@@ -315,11 +333,13 @@ footer {
   text-decoration: underline;
 }
 
+/* Contenedor de botones del popup */
 .botones-cookies {
   display: flex;
   gap: 1rem;
 }
 
+/* Botones del popup con look púrpura */
 .cookies-popup button {
   background-color: #a259ff;
   color: white;
@@ -331,9 +351,10 @@ footer {
 }
 
 .cookies-popup button:hover {
-  background-color: #843bd6;
+  background-color: #843bd6; /* tono púrpura más oscuro al hover */
 }
 
+/* Animación de entrada desde abajo */
 @keyframes slideUp {
   from {
     transform: translateY(100%);
@@ -345,6 +366,7 @@ footer {
   }
 }
 
+/* ===== Botón de “Ver código” en las tarjetas ===== */
 .boton-volver {
   display: inline-block;
   margin-top: 2rem;
@@ -357,7 +379,7 @@ footer {
 }
 
 .boton-volver:hover {
-  background-color: #843bd6;
+  background-color: #843bd6; /* mismo efecto hover que otros botones */
 }
 
 /* ===== Contacto ===== */
@@ -375,7 +397,7 @@ footer {
   margin-bottom: 2rem;
 }
 
-
+/* Formulario en 2 columnas en pantallas grandes */
 #contacto form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -383,6 +405,7 @@ footer {
   padding: 0 1rem; /* margen interno a izquierda y derecha */
 }
 
+/* Inputs y textarea con look oscuro */
 #contacto input,
 #contacto textarea {
   width: 95%;
@@ -394,18 +417,20 @@ footer {
   font-family: var(--font-body);
 }
 
+/* El textarea ocupa toda la fila del grid */
 #contacto textarea {
   grid-column: 1 / -1; /* Ocupa toda la fila */
   min-height: 150px;
-  resize: vertical;
+  resize: vertical;     /* permito redimensionar en vertical */
 }
 
+/* Botón de enviar con el mismo efecto púrpura que las tarjetas */
 #contacto button {
-  grid-column: 1 / -1; /* Botón ocupa toda la fila */
+  grid-column: 1 / -1;  /* Botón ocupa toda la fila */
   padding: 0.8rem;
   border: none;
   border-radius: 8px;
-  background: #000; /* Negro base */
+  background: #000;     
   color: white;
   font-family: var(--font-heading);
   font-weight: 600;
@@ -417,6 +442,7 @@ footer {
   transition: transform 0.2s ease;
 }
 
+/* Capa que rellena el botón al hacer hover (igual que las tarjetas) */
 #contacto button::before {
   content: "";
   position: absolute;
@@ -429,27 +455,31 @@ footer {
   transition: width 0.5s ease;
 }
 
+/* Al pasar el ratón, la capa púrpura cubre todo el botón */
 #contacto button:hover::before {
   width: 100%;
 }
 
+/* El texto del botón siempre por encima de la capa */
 #contacto button span {
   position: relative;
   z-index: 1;
   transition: color 0.3s ease;
 }
 
+/* Cuando el fondo es púrpura, el texto se ve mejor en negro */
 #contacto button:hover span {
   color: black;
 }
 
+/* En móvil, el formulario pasa a 1 columna */
 @media (max-width: 768px) {
   #contacto form {
     grid-template-columns: 1fr; /* Cambia a una sola columna en móvil */
   }
 }
 
-
+/* ===== Sección de Privacidad (misma caja que el resto) ===== */
 #privacidad {
   padding: 2rem;
   background: #1e1e1e;
@@ -464,6 +494,7 @@ footer {
   margin-bottom: 2rem;
 }
 
+/* ===== Sección CV (misma estética de tarjeta grande) ===== */
 #cv {
   padding: 2rem;
   background: #1e1e1e;
@@ -492,6 +523,7 @@ footer {
   text-decoration: none;
 }
 
+/* Grid adaptable para formación/experiencia/habilidades */
 .cv-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -1,54 +1,76 @@
 <!DOCTYPE html>
+<!-- Documento HTML5 -->
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <!-- Hace que la web se vea bien en móvil (escala inicial) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Personal</title>
+
+  <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Pre-cargo las fuentes para que no parpadeen al cargar (mejora rendimiento) -->
   <link rel="preload" href="fonts/Montserrat/Montserrat-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
 
 </head>
 <body>
+  <!-- Encabezado con el menú de navegación -->
   <header>
     <nav>
+      <!-- Botón hamburguesa para abrir/cerrar menú en móvil -->
       <div class="menu-toggle" id="menu-toggle">
         ☰
       </div>
+
+      <!-- Lista de enlaces del menú. En móvil se muestra/oculta con JS -->
       <ul id="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#cv">Currículum</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <!-- Enlace a la página de políticas -->
         <li><a href="politica.html">Política</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Contenido principal de la página -->
   <main>
+    <!-- Sección de presentación -->
     <section id="inicio">
       <div class="perfil">
+        <!-- Imagen de portada / perfil (está de fondo negro para encajar con el tema) -->
         <img src="images/fondo_negro.JPEG" id="foto-perfil" alt="Foto de perfil" class="foto-perfil" />
         <h1>Hola, soy Vicente Limones</h1>
         <p><strong>Data Analyst & Scientist |</strong> Apasionado por transformar datos en decisiones inteligentes</p>
 
+        <!-- Párrafos de presentación. Uso align: justify para que quede más ordenado -->
         <p style="text-align: justify;">Soy un profesional en transición hacia el mundo de los datos, con un Máster en Data Science e Inteligencia Artificial y una formación práctica intensiva en el bootcamp presencial de The Bridge | Digital Talent Accelerator. Combino mi experiencia previa en análisis de métricas y liderazgo con sólidas habilidades técnicas en Python, SQL, Machine Learning y visualización de datos.</p>
 
         <p style="text-align: justify;">Mi objetivo es crear soluciones analíticas que aporten valor real y ayuden a las empresas a crecer de manera sostenible. Disfruto trabajando en equipos multidisciplinares, resolviendo problemas complejos y aprendiendo cada día algo nuevo.</p>
       </div>
     </section>
 
+  <!-- Sección de proyectos con tres tarjetas -->
   <section id="proyectos">
     <h2>Proyectos</h2>
+
+    <!-- Contenedor de las tarjetas de proyecto -->
     <div class="contenedor-proyectos">
 
+      <!-- Tarjeta 1: Recomendador de Películas -->
       <div class="proyecto" aria-labelledby="proj-rps">
+        <!-- Imagen del proyecto (lazy para que cargue cuando haga falta) -->
         <img src="images/recomendador.png" alt="Captura de la app Recomendador de Películas en Streamlit" loading="lazy">
-        <h3 id="proj-rps">Recomendador de Películas (Streamlit)</h3>
+        <h3 id="proj-rps">Recomendador de Películas</h3>
         <p>App en Streamlit que sugiere películas a partir de similitud y clustering. Incluye preprocesado y pipeline reproducible.</p>
+        <!-- Botón que abre el repositorio en una pestaña nueva -->
         <a class="boton-volver" href="https://github.com/Vilicaprogramer/recomendador-peliculas-streamlit" target="_blank" rel="noopener">Ver código</a>
       </div>
 
+      <!-- Tarjeta 2: Predicción de Producción Energética -->
       <div class="proyecto" aria-labelledby="proj-energia">
         <img src="images/energia.png" alt="Gráfico de series temporales para predicción de producción energética" loading="lazy">
         <h3 id="proj-energia">Predicción de Producción Energética</h3>
@@ -56,6 +78,7 @@
         <a class="boton-volver" href="https://github.com/Vilicaprogramer/Predictor_Produccion_Energ-a" target="_blank" rel="noopener">Ver código</a>
       </div>
 
+      <!-- Tarjeta 3: EDA Sharks -->
       <div class="proyecto" aria-labelledby="proj-shark">
         <img src="images/sharks.png" alt="Mapa y gráficas del análisis de ataques de tiburón" loading="lazy">
         <h3 id="proj-shark">EDA: Ataques de Tiburón</h3>
@@ -65,13 +88,13 @@
 
     </div>
 
-
   </section>
 
-
+  <!-- Sección del CV en formato de cuadrícula -->
   <section id="cv">
     <h2>Currículum</h2>
 
+    <!-- Cabecera del CV con datos principales -->
     <div class="cv-header">
       <h3>Vicente Limones</h3>
       <p>Data Analyst & Scientist</p>
@@ -80,6 +103,7 @@
       </p>
     </div>
 
+    <!-- Grid con formación, experiencia, etc. -->
     <div class="cv-grid">
       <div>
         <h4>Formación</h4>
@@ -116,19 +140,27 @@
     </div>
   </section>
 
-
+  <!-- Sección de contacto con formulario -->
   <section id="contacto">
     <h2>Contacto</h2>
+
+    <!-- Formulario simple. En JS se gestiona el envío/mensajes -->
     <form id="contact-form">
+      <!-- Campo de nombre obligatorio -->
       <input type="text" name="name" placeholder="Nombre" required />
+      <!-- Email con validación básica del navegador -->
       <input type="email" name="_replyto" placeholder="Correo electrónico" required />
+      <!-- Mensaje obligatorio -->
       <textarea name="message" placeholder="Mensaje" required></textarea>
+      <!-- Botón de enviar. Lleva un <span> por si quiero animaciones en CSS -->
       <button type="submit"><span>Enviar</span></button>
     </form>
+
+    <!-- Aquí muestro el mensaje de éxito/estado del formulario (se oculta al principio) -->
     <div id="form-message" style="display:none; color: green; margin-top: 10px;"></div>
   </section>
 
-
+    <!-- Mini sección con aviso de privacidad y enlace a la política completa -->
     <section id="privacidad">
       <h2>Política de Privacidad</h2>
       <p style="text-align: justify;">
@@ -140,24 +172,26 @@
       </p>
     </section>
 
-  
-
+    <!-- Popup de cookies. Se muestra la primera vez y se gestiona con JS/localStorage -->
     <div class="cookies-popup" id="cookies-popup">
       <p>
         Utilizamos cookies propias y de terceros para mejorar tu experiencia, analizar el uso del sitio y ofrecer contenido personalizado. 
         Puedes consultar nuestra <a href="politica.html" target="_blank" rel="noopener">Política de Cookies</a> para más información.
       </p>
       <div class="botones-cookies">
+        <!-- Botones accesibles con aria-label -->
         <button id="cookies-aceptar" aria-label="Aceptar cookies">Aceptar</button>
         <button id="cookies-rechazar" aria-label="Rechazar cookies">Rechazar</button>
       </div>
     </div>
   </main>
 
+  <!-- Pie de página con el año -->
   <footer>
     <p>&copy; 2025 - Portfolio Personal</p>
   </footer>
 
+  <!-- JS principal donde está la lógica del menú, cookies y formulario -->
   <script src="js/script.js"></script>
 </body>
 </html>
