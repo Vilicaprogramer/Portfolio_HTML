@@ -56,28 +56,10 @@ Portfolio personal con mis proyectos y CV. Sitio sencillo en **HTML, CSS y JavaS
 
 ---
 
-## 🌐 Publicación
-
-Puedes publicarlo en cualquiera de estos servicios gratuitos:
-- **GitHub Pages:** rama `main` con carpeta raíz del proyecto.  
-- **Netlify:** arrastrar y soltar la carpeta o conectar el repo.  
-- **Vercel:** conectar el repo y desplegar.
-
-> **URL de producción:** https://vilicaprogramer.github.io/Portfolio_HTML/index.html
-
----
-
 ## 🧩 Integraciones
 
 ### Formspree (formulario)
-El formulario envía a Formspree con `fetch`. Solo tienes que reemplazar tu endpoint:
-```js
-fetch('https://formspree.io/f/TU_ENDPOINT', {
-  method: 'POST',
-  body: new FormData(form),
-  headers: { 'Accept': 'application/json' }
-})
-```
+El formulario envía a Formspree con `fetch`. 
 > En este proyecto se usa: `https://formspree.io/f/mvgqdqba`
 
 ### Popup de cookies
@@ -86,7 +68,7 @@ fetch('https://formspree.io/f/TU_ENDPOINT', {
 
 ---
 
-## 🧪 Plan de pruebas (resumen)
+## 🧪 Plan de pruebas
 - **Responsive:** 1080p, 768px, 375px.
 - **Enlaces y formulario:** enlaces internos/externos y envío con validación.
 - **Navegadores:** Chrome, Firefox y Edge.
