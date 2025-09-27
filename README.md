@@ -48,7 +48,7 @@ Portfolio personal con mis proyectos y CV. Sitio sencillo en **HTML, CSS y JavaS
 
 1. Clona el repo:
    ```bash
-   git clone https://github.com/USUARIO/REPO.git
+   git clone https://github.com/vilicaprogramer/portfolio_web.git
    cd REPO
    ```
 2. Abre `index.html` en tu navegador.  
